@@ -3,10 +3,26 @@
 
 void allmac(int ***mat1, int ***T, int row, int col){
     *mat1 = (int**)malloc(row*sizeof(int*));
+    if(*mat1==NULL){
+       printf("Error in allocation");
+       return(-1);
+    }
+   
+   
     *T = (int**)malloc(row*sizeof(int*));
+   if(*T==NULL){
+       printf("Error in allocation");
+       return(-1);
+    }
+   
     for(int i = 0; i < row; i++){
         (*mat1)[i] = (int*)malloc(col * sizeof(int));
         (*T)[i] = (int *)malloc(col * sizeof(int));
+      if((*mat1)[i]==NULL || (*T)[i]=NULL){
+       printf("Error in allocation");
+       return(-1)
+    }
+   ;
     }
 }
 void freeing(int **mat1, int **T, int row){
